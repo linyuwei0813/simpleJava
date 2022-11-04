@@ -18,6 +18,7 @@ public class ListNode {
         for (int i = 1; i < arr.length; i++) {
             ListNode currentNode = new ListNode(arr[i]);
             tail.next = currentNode;
+            tail = currentNode;
         }
         return head;
     }
@@ -44,5 +45,21 @@ public class ListNode {
             tail.next = entrance;
         }
         return head;
+    }
+
+    public static boolean isEqual(ListNode list1, ListNode list2){
+
+        while (list1!=null && list2 !=null){
+            if(list1.val!=list2.val){
+                return false;
+            }else {
+                list1 = list1.next;
+                list2 = list2.next;
+            }
+        }
+        if(list1 == null ^ list2 == null){
+            return false;
+        }
+        return true;
     }
 }
